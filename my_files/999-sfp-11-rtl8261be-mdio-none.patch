@@ -1,7 +1,8 @@
 --- a/drivers/net/phy/sfp.c
 +++ b/drivers/net/phy/sfp.c
-@@ -456,16 +456,68 @@ static void sfp_fixup_fs_10gt(struct sfp *sfp)
- 	sfp_fixup_rollball_wait4s(sfp);
+@@ -1,6 +1,58 @@ static void sfp_fixup_potron(struct sfp *sfp)
+ 	sfp_fixup_long_startup(sfp);
+ 	sfp_fixup_ignore_hw(sfp, SFP_F_TX_FAULT | SFP_F_LOS);
  }
 
 +/* Local mirror of rollball constants from mdio-i2c.c */
@@ -78,16 +79,18 @@
 +}
 +
  static void sfp_fixup_rollball_cc(struct sfp *sfp)
- {
+-{
 -	sfp_fixup_rollball(sfp);
 -
 -	/* Some RollBall SFPs may have wrong (zero) extended compliance code
 -	 * burned in EEPROM. For PHY probing we need the correct one.
 -	 */
 -	sfp->id.base.extended_cc = SFF8024_ECC_10GBASE_T_SFI;
+-}
++{
 +	/* Probe for I2C-to-MDIO bridge: real RollBall modules assert CMD_DONE
 +	 * within ~70 ms; pure media converters (e.g. RTL8261BE) have no bridge
-+	 * and the probe times out after 200 ms — skip PHY probing for those.
++	 * and the probe times out after 200 ms -- skip PHY probing for those.
 +	 */
 +	if (!sfp_has_rollball_bridge(sfp)) {
 +		sfp->mdio_protocol = MDIO_I2C_NONE;
@@ -95,11 +98,10 @@
 +	}
 +	sfp_fixup_rollball(sfp);
 +	sfp->id.base.extended_cc = SFF8024_ECC_10GBASE_T_SFI;
- }
++}
 
  static void sfp_quirk_2500basex(const struct sfp_eeprom_id *id,
-@@ -614,7 +666,9 @@ static const struct sfp_quirk sfp_quirks[] = {
-
+@@ -1,6 +1,8 @@ static const struct sfp_quirk sfp_quirks[] = {
  	SFP_QUIRK_F("ETU", "ESP-T5-R", sfp_fixup_rollball_cc),
 -	SFP_QUIRK_F("OEM", "SFP-10G-T", sfp_fixup_rollball_cc),
 +	SFP_QUIRK_F("OEM", "SFP-10G-T-I", sfp_fixup_rollball_cc),
