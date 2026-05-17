@@ -216,6 +216,31 @@ jobs:
             done
           fi
 
+      - name: Publish luci-app-wifimgr APK
+        if: github.event.inputs.variant == 'standard'
+        run: |
+          APK=$(ls openwrt/bin/packages/aarch64_cortex-a53/luci/luci-app-wifimgr-*.apk 2>/dev/null | head -1)
+          echo "APK_PATH=$APK" >> $GITHUB_ENV
+          echo "APK_NAME=$(basename $APK)" >> $GITHUB_ENV
+
+      - name: Publish wifimgr-latest release
+        if: github.event.inputs.variant == 'standard'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: wifimgr-latest
+          name: "luci-app-wifimgr (latest)"
+          body: |
+            Standalone APK for luci-app-wifimgr — install on any BPI-R4 running this firmware.
+
+            ```
+            apk add --allow-untrusted --no-network /tmp/${{ env.APK_NAME }}
+            ```
+
+            Built from commit: ${{ github.event.inputs.repo_commit || github.sha }}
+          files: ${{ env.APK_PATH }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish release-4gb-standard
         if: github.event.inputs.variant == 'standard'
         uses: softprops/action-gh-release@v2
