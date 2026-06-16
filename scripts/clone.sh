@@ -8,5 +8,5 @@ mkdir -p "$FEED_DIR"
 for repo in "${repos[@]}"; do
     set -- $repo
     echo "Clone $1"
-    clone_repo "$1" "$GIT_DIR/$2" "$3" "$4"
+    clone_repo "$1" "$GIT_DIR/$2" "${3-}" "${4-}"
 done
