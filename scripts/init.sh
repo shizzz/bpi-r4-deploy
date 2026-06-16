@@ -1,19 +1,18 @@
 #!/bin/bash
 echo "Init"
 
-BASE_DIR="$(pwd)"
+BASE_DIR="$(cd .. && pwd)"
 WORK_DIR="openwrt"
 SOURCES_DIR="sources"
 CONFIG_DIR="scripts/configs"
-FEED_DIR="$SOURCES_DIR/my_feed"
-GIT_DIR="$SOURCES_DIR/git"
+FEED_DIR="$BASE_DIR/$SOURCES_DIR/my_feed"
+GIT_DIR="$BASE_DIR/$SOURCES_DIR/git"
 REPO_LIST="$BASE_DIR/$CONFIG_DIR/extra_repos.txt"
 COPY_RULES_LIST="$BASE_DIR/$CONFIG_DIR/extra_copy_rules.txt"
 Y_LIST="$BASE_DIR/$CONFIG_DIR/enable_y.txt"
 M_LIST="$BASE_DIR/$CONFIG_DIR/enable_m.txt"
 
 repos=()
-
 copy_rules=()
 
 # Add packages from workflow input to enable_y.txt

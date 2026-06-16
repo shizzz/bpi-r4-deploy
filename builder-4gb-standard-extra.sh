@@ -41,7 +41,7 @@ chmod +x files/etc/uci-defaults/99-set-hostname
 
 ./scripts/feeds update -a
 
-source ../scripts/init.sh ../configs/my_defconfig-4gb-standard
+source ../extra.sh ../configs/my_defconfig-4gb-standard
 ./scripts/feeds update -a
 
 ./scripts/feeds install -a
