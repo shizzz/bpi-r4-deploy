@@ -1,0 +1,15 @@
+
+zapret-openwrt/luci-app-zapret luci-app-zapret/
+zapret-openwrt/zapret zapret/
+zapret-openwrt/zapret-ip2net zapret-ip2net/
+zapret-openwrt/zapret-mdig zapret-mdig/
+zapret-openwrt/zapret-tpws zapret-tpws/
+awg-openwrt/amneziawg-tools amneziawg-tools/
+awg-openwrt/kmod-amneziawg kmod-amneziawg/
+awg-openwrt/luci-proto-amneziawg luci-proto-amneziawg/
+luci-app-temp-status luci-app-temp-status/
+ssclash ssclash/
+luci-theme-aurora luci-theme-aurora/
+luci-theme-argon luci-theme-argon/
+luci-app-bandix/luci-app-bandix luci-app-bandix/ 
+openwrt-bandix/openwrt-bandix/ openwrt-bandix/
