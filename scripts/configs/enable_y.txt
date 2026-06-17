@@ -28,6 +28,3 @@ luci-app-upnp
 luci-mod-dashboard
 luci-nginx
 zapret
-zapret-tpws
-zapret-mdig
-zapret-ip2net

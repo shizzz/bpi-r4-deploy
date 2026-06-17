@@ -1,9 +1,6 @@
 
 zapret-openwrt/luci-app-zapret luci-app-zapret/
 zapret-openwrt/zapret zapret/
-zapret-openwrt/zapret-ip2net zapret-ip2net/
-zapret-openwrt/zapret-mdig zapret-mdig/
-zapret-openwrt/zapret-tpws zapret-tpws/
 awg-openwrt/amneziawg-tools amneziawg-tools/
 awg-openwrt/kmod-amneziawg kmod-amneziawg/
 awg-openwrt/luci-proto-amneziawg luci-proto-amneziawg/
