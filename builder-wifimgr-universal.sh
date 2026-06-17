@@ -53,7 +53,7 @@ mkdir -p files/etc/uci-defaults
 chmod +x files/etc/uci-defaults/99-set-hostname
 
 ./scripts/feeds update -a
-source ../extra.sh ../configs/my_defconfig-4gb-standard
+source ../extra.sh ../configs/my_defconfig-wifimgr-universal
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
