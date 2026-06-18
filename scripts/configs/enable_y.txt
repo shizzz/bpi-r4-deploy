@@ -13,6 +13,7 @@ kmod-nft-queue
 kmod-nft-compat
 kmod-nvme
 kmod-tun
+acme-acmesh-dnsapi
 coreutils-base64
 amneziawg-tools
 zapret
