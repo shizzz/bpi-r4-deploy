@@ -16,6 +16,8 @@ kmod-tun
 coreutils-base64
 amneziawg-tools
 zapret
+rsync
+diffutils
 luci
 luci-nginx
 luci-proto-amneziawg
@@ -28,7 +30,6 @@ luci-app-zapret
 luci-app-acme
 luci-app-dockerman
 luci-app-bandix
-luci-app-https-dns-proxy
 luci-app-statistics
 luci-app-transmission
 luci-app-upnp
