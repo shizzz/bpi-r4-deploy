@@ -29,7 +29,7 @@ git clone --branch git01 https://github.com/mediatek/mtk-openwrt-feeds mtk-openw
 \cp -r my_files/0264-wpa_s-add-btwt-join-command.patch mtk-openwrt-feeds/autobuild/unified/filogic/mac80211/25.12/files/package/network/services/hostapd/patches/0264-wpa_s-add-btwt-join-command.patch
 
 ### tx_power check Ivan Mironov's patch - for defective BE14 boards with defective eeprom flash
-#\cp -r my_files/100-wifi-mt76-mt7996-Use-tx_power-from-default-fw-if-EEP.patch mtk-openwrt-feeds/autobuild/unified/filogic/mac80211/25.12/files/package/kernel/mt76/patches
+\cp -r my_files/100-wifi-mt76-mt7996-Use-tx_power-from-default-fw-if-EEP.patch mtk-openwrt-feeds/autobuild/unified/filogic/mac80211/25.12/files/package/kernel/mt76/patches
 
 cd openwrt
 bash ../mtk-openwrt-feeds/autobuild/unified/autobuild.sh filogic-mac80211-mt798x_rfb-wifi7_nic prepare
@@ -61,6 +61,8 @@ mkdir -p files/etc/uci-defaults
 \cp -r ../my_files/99-set-hostname files/etc/uci-defaults/
 chmod +x files/etc/uci-defaults/99-set-hostname
 
+./scripts/feeds update -a
+source ../extra.sh ../configs/my_defconfig-wifimgr-universal
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
