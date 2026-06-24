@@ -23,6 +23,7 @@ luci
 luci-nginx
 luci-proto-amneziawg
 luci-app-temp-status
+luci-app-fancontrol
 luci-app-upnp
 luci-theme-argon
 luci-theme-aurora
